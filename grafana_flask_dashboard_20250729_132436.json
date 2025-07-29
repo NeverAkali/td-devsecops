@@ -1,0 +1,39 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": null,
+    "title": "Todo Flask Metrics",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Requêtes HTTP par seconde",
+        "targets": [
+          {
+            "expr": "rate(flask_http_request_total[1m])",
+            "legendFormat": "{{method}} {{status}}",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 0, "y": 0, "w": 24, "h": 9 }
+      },
+      {
+        "type": "graph",
+        "title": "Latence moyenne (secondes)",
+        "targets": [
+          {
+            "expr": "rate(flask_http_request_duration_seconds_sum[1m]) / rate(flask_http_request_duration_seconds_count[1m])",
+            "legendFormat": "Latence moyenne",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 0, "y": 9, "w": 24, "h": 9 }
+      }
+    ],
+    "schemaVersion": 30,
+    "version": 1
+  }
+}
+

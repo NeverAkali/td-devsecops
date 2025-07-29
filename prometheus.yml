@@ -7,9 +7,3 @@ scrape_configs:
     static_configs:
       - targets: ['app:5000']
 
-  - job_name: 'todo-app-health'
-    metrics_path: /health
-    static_configs:
-      - targets: ['app:5000']
-
-
