@@ -144,6 +144,9 @@ def health():
     """
     return "OK"
 
+@app.errorhandler(500)
+def internal_error(error):
+    return "Internal Server Error", 500
 
 if __name__ == "__main__":
 
